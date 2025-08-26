@@ -15,13 +15,15 @@ import Blouses from "./Pages/Blouses/Blouses";
 import Shoes from "./Pages/Shoes/Shoes";
 import Bags from "./Pages/Bags/Bags";
 import Accessories from "./Pages/Accessories/Accessories";
+import Promotions from "./Pages/Promotions/Promotions";
 import TotalLook from "./Pages/TotalLook/TotalLook";
 import Info from "./Pages/Info/Info";
 import Cart from "./Pages/Cart/Cart";
-import Checkout from "./Pages/Checkout/Checkout";
 import AdminPanel from "./Pages/Admin/AdminPanel";
 import AddProduct from "./Pages/Admin/AddProduct";
 import EditProduct from "./Pages/Admin/EditProduct";
+import Checkout from "./Pages/Checkout/Checkout";
+import OrderConfirmation from "./Components/OrderConfirmation/OrderConfirmation";
 
 import { current } from "./JS/Actions/user";
 import NavBar from "./Components/NavBar";
@@ -36,10 +38,12 @@ function App() {
 
   // compteur panier (somme des quantités)
   const cartCount = useSelector(
-    (state) => state.cart?.items?.reduce((sum, it) => sum + (it?.quantity || 0), 0) || 0
+    (state) =>
+      state.cart?.items?.reduce((sum, it) => sum + (it?.quantity || 0), 0) || 0
   );
 
-const user = useSelector((state) => state.user?.user); // au lieu de currentUser
+  const user = useSelector((state) => state.user?.user);
+  const isAuth = useSelector((state) => state.user?.isAuth); // ✅ ajout pour protéger les routes
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -49,7 +53,9 @@ const user = useSelector((state) => state.user?.user); // au lieu de currentUser
   return (
     <div className="App">
       <NavBar cartCount={cartCount} onLoginClick={() => setShowLogin(true)} />
-      {showLogin && <LoginPanel show={showLogin} onClose={() => setShowLogin(false)} />}
+      {showLogin && (
+        <LoginPanel show={showLogin} onClose={() => setShowLogin(false)} />
+      )}
 
       <ToastContainer
         position="top-right"
@@ -73,12 +79,26 @@ const user = useSelector((state) => state.user?.user); // au lieu de currentUser
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/bags" element={<Bags />} />
           <Route path="/accessories" element={<Accessories />} />
+          <Route path="/promotions" element={<Promotions />} />
           <Route path="/total-look" element={<TotalLook />} />
           <Route path="/info" element={<Info />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+
+          {/* ✅ routes protégées */}
+          <Route
+            path="/checkout"
+            element={isAuth ? <Checkout /> : <Login />}
+          />
+          <Route
+            path="/order-confirmation"
+            element={isAuth ? <OrderConfirmation /> : <Login />}
+          />
+
           {/* Route admin protégée */}
-          <Route path="/admin" element={user?.isAdmin ? <AdminPanel user={user} /> : <Login />} />
+          <Route
+            path="/admin"
+            element={user?.isAdmin ? <AdminPanel user={user} /> : <Login />}
+          />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
           <Route path="/*" element={<Error />} />
