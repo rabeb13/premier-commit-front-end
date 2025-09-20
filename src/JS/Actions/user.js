@@ -10,7 +10,7 @@ import {
 
 import axios from "axios";
 
-axios.defaults.baseURL = import.meta?.env?.VITE_API_URL ;
+axios.defaults.baseURL ="https://premier-commit-back-end-class-clothes-1.onrender.com" ;
 
 // Helper pour ajouter le token
 const authHeader = () => {
