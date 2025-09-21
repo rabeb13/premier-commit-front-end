@@ -10,7 +10,7 @@ import {
 
 import axios from "axios";
 
-axios.defaults.baseURL ="https://premier-commit-back-end-class-clothes-1.onrender.com" ;
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 // Helper pour ajouter le token
 const authHeader = () => {
