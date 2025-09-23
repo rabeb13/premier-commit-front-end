@@ -5,9 +5,9 @@ import { getProducts } from "../../JS/Actions/product";
 import { addToCart } from "../../JS/Actions/cart";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Blouses.css";
+import "./Veste.css";
 
-const Blouses = () => {
+const Veste = () => {
   const dispatch = useDispatch();
   const { listProducts, load, error } = useSelector((state) => state.product);
 
@@ -16,8 +16,8 @@ const Blouses = () => {
   }, [dispatch]);
 
   // Filtrer uniquement les produits de la catégorie "blouses"
-  const blouses = listProducts.filter(
-    (product) => product.category?.toLowerCase() === "blouses"
+  const veste = listProducts.filter(
+    (product) => product.category?.toLowerCase() === "veste"
   );
 
   const handleAddToCart = (product) => {
@@ -43,10 +43,10 @@ const Blouses = () => {
   if (error) return <p style={{ color: "red" }}>{String(error)}</p>;
 
   return (
-    <div className="blouses-page">
-      <h2 className="blouses-title">Blouses</h2>
-      <div className="blouses-grid">
-        {blouses.map((product) => (
+    <div className="veste-page">
+      <h2 className="veste-title">Veste</h2>
+      <div className="veste-grid">
+        {veste.map((product) => (
           <ProductCard
             key={product._id}
             product={product}
@@ -58,4 +58,4 @@ const Blouses = () => {
   );
 };
 
-export default Blouses;
+export default Veste;

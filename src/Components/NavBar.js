@@ -25,7 +25,7 @@ const NavBar = () => {
   );
 
   // Liste des pages/catégories
-  const pages = ['Tshirts', 'Jeans', 'Dresses', 'Accessories'];
+  const pages = ['Tshirts', 'Jeans', 'Dresses', 'Accessories', 'Veste', 'bags'];
 
   const handleLogout = () => {
     dispatch(logout());
@@ -137,7 +137,7 @@ const handleSearch = (e) => {
 
 
           {/* Logout */}
-          {isAuth && <button onClick={handleLogout} className="logout-btn">Logout</button>}
+          {/* {isAuth && <button onClick={handleLogout} className="logout-btn">Logout</button>} */}
         </div>
       </header>
 

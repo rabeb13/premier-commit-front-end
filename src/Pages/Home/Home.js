@@ -82,7 +82,7 @@ const Home = () => {
               case 1: link = "/dresses"; break;
               case 2: link = "/shoes"; break;
               case 3: link = "/jeans"; break;
-              case 4: link = "/blouses"; break;
+              case 4: link = "/veste"; break;
               default: link = "/"; 
             }
             return (
@@ -104,7 +104,7 @@ const Home = () => {
       {/* Promotions */}
       <section 
         className="promotions-section" 
-        onClick={() => navigate('/blouses')}
+        onClick={() => navigate('/veste')}
       >
         <img src="https://plus.unsplash.com/premium_photo-1674718917175-70e7062732e5?w=600&auto=format&fit=crop&q=60" alt="Sale Banner" />
         <div className="promo-text">
