@@ -24,10 +24,10 @@ const categories = [
   { title: 'Bags', image: 'https://images.unsplash.com/photo-1613482184972-f9c1022d0928?w=600&auto=format&fit=crop&q=60', link: '/bags' },
 ];
 const newArrivals = [
-  { id: 1, name: "Robe", price: 59.99, image: "https://plus.unsplash.com/premium_photo-1708276242787-387acf1bbd4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cm9iZSUyMHRyZW5kfGVufDB8fDB8fHww"},
-  { id: 2, name: "Talon", price: 89.99, image: "https://plus.unsplash.com/premium_photo-1668698471580-02f5c8eb739a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRhbG9ufGVufDB8fDB8fHww" },
-  { id: 3, name: "Jeans", price: 49.99, image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8amVhbnN8ZW58MHx8MHx8fDA%3D" },
-  { id: 4, name: "Veste", price: 39.99, image: "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmVzdGV8ZW58MHx8MHx8fDA%3D" },
+  { id: 1, name: "Robe", price: 59.99, image: "https://plus.unsplash.com/premium_photo-1708276242787-387acf1bbd4b?w=600&auto=format&fit=crop&q=60"},
+  { id: 2, name: "Talon", price: 89.99, image: "https://plus.unsplash.com/premium_photo-1668698471580-02f5c8eb739a?w=600&auto=format&fit=crop&q=60"},
+  { id: 3, name: "Jeans", price: 49.99, image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0" },
+  { id: 4, name: "Veste", price: 39.99, image: "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"},
 ];
 
 const Home = () => {
