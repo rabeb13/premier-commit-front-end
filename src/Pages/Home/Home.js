@@ -12,8 +12,8 @@ import './Home.css';
 const suggestionsData = [
   { id: 1, name: 'Bracelet', price: '12,99', image: 'https://plus.unsplash.com/premium_photo-1681276168324-a6f1958aa191?w=600&auto=format&fit=crop&q=60' },
   { id: 2, name: 'Bracelet', price: '17,99', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1000&auto=format&fit=crop&q=60' },
-  { id: 4, name: 'Boucle doreille ', price: '12,99', image: 'https://images.unsplash.com/photo-1705326454933-9685fc6888e1?w=600&auto=format&fit=crop&q=60' },
-  { id: 5, name: 'Boucle doreille ', price: '12,99', image: 'https://images.unsplash.com/photo-1610213665246-eb2df074f8e6?w=600&auto=format&fit=crop&q=60' },
+  { id: 4, name: 'Boucles d oreilles ', price: '12,99', image: 'https://images.unsplash.com/photo-1705326454933-9685fc6888e1?w=600&auto=format&fit=crop&q=60' },
+  { id: 5, name: 'Boucles d oreille ', price: '12,99', image: 'https://images.unsplash.com/photo-1610213665246-eb2df074f8e6?w=600&auto=format&fit=crop&q=60' },
 ];
 
 const categories = [
