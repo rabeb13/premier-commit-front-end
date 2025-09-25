@@ -30,7 +30,7 @@ export const getProducts = () => async (dispatch) => {
 // ✅ ADD product (admin only)
 export const addProduct = (newProduct) => async (dispatch) => {
   try {
-    await axios.post("/products", newProduct, authHeader());
+    await axios.post("/api/products", newProduct, authHeader());
     dispatch(getProducts());
   } catch (error) {
     dispatch({

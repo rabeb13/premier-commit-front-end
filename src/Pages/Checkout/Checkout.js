@@ -57,7 +57,7 @@ const order = {
 };
 
 try {
-  const res = await axios.post("orders/my", order, {
+  const res = await axios.post("https://premier-commit-back-end-class-clothes-1.onrender.com/api/orders/my", order, {
     headers: { Authorization: token ? `Bearer ${token}` : "" },
   });
 
