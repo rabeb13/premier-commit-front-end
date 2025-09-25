@@ -14,7 +14,7 @@ export default function MyOrders() {
         if (!token) throw new Error("Utilisateur non authentifié");
 
         // ✅ URL corrigée : base + route
-        const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/orders/my`, {
+        const { data } = await axios.get(`/orders/my`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
