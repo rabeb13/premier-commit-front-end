@@ -15,9 +15,33 @@ export default function ProductCard({ product }) {
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || null);
   const [selectedSize, setSelectedSize] = useState(null);
 
-  // états loupe
+  // zoom états
   const [zoomed, setZoomed] = useState(false);
   const [origin, setOrigin] = useState("50% 50%");
+
+  // index de l’image courante (carousel)
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // images filtrées par couleur
+  const getImagesByColor = (color) => {
+    const imgs = product.images?.filter((img) => img.color === color);
+    return imgs && imgs.length > 0 ? imgs : product.images || [];
+  };
+
+  const imagesToShow = selectedColor
+    ? getImagesByColor(selectedColor)
+    : product.images || [];
+
+  const displayedImage = imagesToShow[currentIndex]?.url || "";
+
+  // navigation flèches
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev === imagesToShow.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev === 0 ? imagesToShow.length - 1 : prev - 1));
+  };
 
   // calcule l'origine en fonction du curseur
   const setOriginFromEvent = (e) => {
@@ -27,7 +51,6 @@ export default function ProductCard({ product }) {
     setOrigin(`${x}% ${y}%`);
   };
 
-  // clic active/désactive le zoom
   const handleClickZoom = (e) => {
     if (zoomed) {
       setZoomed(false);
@@ -38,20 +61,10 @@ export default function ProductCard({ product }) {
     }
   };
 
-  // si on est en mode zoom, on déplace la loupe en suivant la souris
   const handleMouseMove = (e) => {
     if (!zoomed) return;
     setOriginFromEvent(e);
   };
-
-  // ⚡ image par couleur
-  const getImageByColor = (color) => {
-    const imgObj = product.images?.find((img) => img.color === color);
-    return imgObj ? imgObj.url : product.images?.[0]?.url || "";
-  };
-
-  const displayedImage =
-    selectedColor ? getImageByColor(selectedColor) : product.images?.[0]?.url || "";
 
   const handleAddToCart = () => {
     if (!selectedColor || !selectedSize) {
@@ -74,7 +87,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="product-card">
-      {/* Image avec effet loupe au clic */}
+      {/* Image + flèches + zoom */}
       <div
         className="card-img-container"
         onClick={handleClickZoom}
@@ -86,11 +99,37 @@ export default function ProductCard({ product }) {
           className={`product-img ${zoomed ? "zoomed" : ""}`}
           style={{
             transformOrigin: origin,
-            transform: zoomed ? "scale(2)" : "scale(1)", // facteur de zoom
+            transform: zoomed ? "scale(2)" : "scale(1)",
             cursor: zoomed ? "zoom-out" : "zoom-in",
             transition: zoomed ? "none" : "transform 0.25s ease",
           }}
         />
+
+        {/* ✅ flèche gauche */}
+        {imagesToShow.length > 1 && (
+          <button
+            className="arrow left"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+          >
+            ❮
+          </button>
+        )}
+
+        {/* ✅ flèche droite */}
+        {imagesToShow.length > 1 && (
+          <button
+            className="arrow right"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+          >
+            ❯
+          </button>
+        )}
       </div>
 
       {/* Couleurs */}
@@ -100,7 +139,10 @@ export default function ProductCard({ product }) {
             key={c}
             className={`pc-swatch ${selectedColor === c ? "selected" : ""}`}
             style={{ background: c }}
-            onClick={() => setSelectedColor(c)}
+            onClick={() => {
+              setSelectedColor(c);
+              setCurrentIndex(0); // reset au début
+            }}
           />
         ))}
       </div>

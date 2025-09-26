@@ -10,24 +10,24 @@ import "slick-carousel/slick/slick-theme.css";
 import './Home.css';
 
 const suggestionsData = [
-  { id: 1, name: 'Bracelet', price: '12,99', image: 'https://plus.unsplash.com/premium_photo-1681276168324-a6f1958aa191?w=600&auto=format&fit=crop&q=60' },
-  { id: 2, name: 'Bracelet', price: '17,99', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1000&auto=format&fit=crop&q=60' },
-  { id: 4, name: 'Boucles d oreilles ', price: '12,99', image: 'https://images.unsplash.com/photo-1705326454933-9685fc6888e1?w=600&auto=format&fit=crop&q=60' },
-  { id: 5, name: 'Boucles d oreille ', price: '12,99', image: 'https://images.unsplash.com/photo-1610213665246-eb2df074f8e6?w=600&auto=format&fit=crop&q=60' },
+  { id: 1, name: 'Lunette', image: 'lunette.jpg' },
+  { id: 2, name: 'Bracelet', image: 'oreille.jpg' },
+  { id: 4, name: 'Boucles d oreilles ', image: 'boucledoreilles.jpg '},
+  { id: 5, name: 'Boucles d oreille ', image: 'boucle.jpg' },
 ];
 
 const categories = [
-  { title: 'T-Shirts', image: 'https://images.unsplash.com/photo-1643881080002-afdc695936e0?w=600&auto=format&fit=crop&q=60', link: '/tshirts' },
-  { title: 'Jeans', image: 'https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=880&auto=format&fit=crop', link: '/jeans' },
-  { title: 'Dresses', image: 'https://plus.unsplash.com/premium_photo-1673481601147-ee95199d3896?q=80&w=687&auto=format&fit=crop', link: '/dresses' },
-  { title: 'Shoes', image: 'https://plus.unsplash.com/premium_photo-1711051513016-72baa1035293?w=600&auto=format&fit=crop&q=60', link: '/shoes' },
-  { title: 'Bags', image: 'https://images.unsplash.com/photo-1613482184972-f9c1022d0928?w=600&auto=format&fit=crop&q=60', link: '/bags' },
+  { title: 'T-Shirts', image: 'tshirtgris.jpg', link: '/tshirts' },
+  { title: 'Jeans', image: 'jeans2.webp', link: '/jeans' },
+  { title: 'Dresses', image: 'dress.jpg', link: '/dresses' },
+  { title: 'Shoes', image: 'shoes2.jpg', link: '/shoes' },
+  { title: 'Bags', image: 'bags.webp', link: '/bags' },
 ];
 const newArrivals = [
-  { id: 1, name: "Robe", price: 59.99, image: "https://plus.unsplash.com/premium_photo-1708276242787-387acf1bbd4b?w=600&auto=format&fit=crop&q=60"},
-  { id: 2, name: "Talon", price: 89.99, image: "https://plus.unsplash.com/premium_photo-1668698471580-02f5c8eb739a?w=600&auto=format&fit=crop&q=60"},
-  { id: 3, name: "Jeans", price: 49.99, image: "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0" },
-  { id: 4, name: "Veste", price: 39.99, image: "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"},
+  { id: 1, name: "Robe",  image: "./dress1.webp"},
+  { id: 2, name: "Sandales Talon", image: "shoes1.jpg"},
+  { id: 3, name: "Jeans", image: "./jeans1.webp" },
+  { id: 4, name: "Veste",  image: "blouses1.webp"},
 ];
 
 const Home = () => {
@@ -94,7 +94,7 @@ const Home = () => {
               >
                 <img src={p.image} alt={p.name} />
                 <p>{p.name}</p>
-                <span>{p.price} TND</span>
+                {/* <span>{p.price} TND</span> */}
               </div>
             );
           })}
@@ -124,7 +124,7 @@ const Home = () => {
             <div key={p.id} className="product-card">
               <img src={p.image} alt={p.name} />
               <p>{p.name}</p>
-              <span>{p.price} TND</span>
+              {/* <span>{p.price} TND</span> */}
             </div>
           ))}
         </div>

@@ -26,7 +26,7 @@ import Checkout from "./Pages/Checkout/Checkout";
 import OrderConfirmation from "./Components/OrderConfirmation/OrderConfirmation";
 import MyOrders from "./Pages/Orders/MyOrders";
 import OrderDetail from "./Pages/Orders/OrderDetail";
-import BulkUpsertProducts from "./Pages/Admin/BulkUpsertProducts";
+// import BulkUpsertProducts from "./Pages/Admin/BulkUpsertProducts";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 
 
@@ -113,7 +113,7 @@ function App() {
           />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
-          <Route path="/admin/bulk-products" element={<BulkUpsertProducts />} />
+          {/* <Route path="/admin/bulk-products" element={<BulkUpsertProducts />} /> */}
 
           <Route path="/*" element={<Error />} />
         </Routes>

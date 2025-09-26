@@ -95,10 +95,10 @@ const Login = () => {
     </button>
   </div>
 
-  <p className="password-requirements">
+  {/* <p className="password-requirements">
     Your password must contain at least 8 characters, an uppercase and a lowercase letter and a number.
     Please do not repeat the same character more than three times.
-  </p>
+  </p> */}
 
   <div className="options">
     <label><input type="checkbox" />Stay logged in</label>

@@ -150,13 +150,13 @@ const AdminPanel = () => {
       + Ajouter un produit
     </button>
     {/* 👇 Nouveau bouton minimal */}
-    <button
+    {/* <button
       onClick={() => navigate("/admin/bulk-products")}
       className="add-btn"
       style={{ marginLeft: 8 }}
     >
       ⚡ Ajout / Modif en masse
-    </button>
+    </button> */}
   </div>
 </header>
 

@@ -82,10 +82,9 @@
 }
 
 /* --- Image / loupe --- */
-/* Garde SEULEMENT cette version pour éviter les barres de scroll */
 .card-img-container {
   position: relative;
-  overflow: hidden;           /* ✅ pas de scrollbars pendant le zoom */
+  overflow: hidden;           
   cursor: zoom-in;
 }
 
@@ -94,4 +93,70 @@
   height: 100%;
   object-fit: cover;
   will-change: transform;
+}
+/* --- Flèches au milieu de l'image --- */
+.arrow {
+  position: absolute;
+  top: 50%;                 /* milieu vertical */
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); /* semi-transparent noir */
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+  border: none;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  user-select: none;
+  
+  opacity: 0;                /* invisible par défaut */
+  pointer-events: none;      /* non cliquable par défaut */
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* --- Apparition au hover du conteneur image --- */
+.card-img-container:hover .arrow {
+  opacity: 1;                /* devient visible au survol */
+  pointer-events: auto;      /* cliquable au survol */
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.7);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Miniatures sous l'image (optionnel) --- */
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  border-color: #111;
+  transform: scale(1.05);
+}
+
+.thumbnail.active {
+  border: 2px solid #111;
 }

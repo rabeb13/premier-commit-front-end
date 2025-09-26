@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import './OrderDetail.css'
 
 export default function OrderDetail() {
   const { id } = useParams();

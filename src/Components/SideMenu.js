@@ -28,7 +28,7 @@ const SideMenu = ({ show, onClose }) => {
       <Offcanvas.Body>
         <nav className="side-links">
 
-          <Link to="/" onClick={handleLinkClick}>NEW IN</Link>
+          {/* <Link to="/" onClick={handleLinkClick}>NEW IN</Link> */}
 
           {/* CLOTHING with sub-menu */}
           <div className="submenu-section">
@@ -54,10 +54,10 @@ const SideMenu = ({ show, onClose }) => {
           <Link to="/shoes" onClick={handleLinkClick}>SHOES</Link>
           <Link to="/bags" onClick={handleLinkClick}>BAGS</Link>
           <Link to="/accessories" onClick={handleLinkClick}>ACCESSORIES</Link>
-          <Link to="/total-look" onClick={handleLinkClick}>
-            TOTAL LOOK <span className="new-badge">NEW</span>
-          </Link>
-          <Link to="/info" onClick={handleLinkClick}>+ INFO</Link>
+          {/* <Link to="/total-look" onClick={handleLinkClick}> */}
+            {/* TOTAL LOOK <span className="new-badge">NEW</span> */}
+          {/* </Link> */}
+          {/* <Link to="/info" onClick={handleLinkClick}>+ INFO</Link> */}
 
         </nav>
       </Offcanvas.Body>

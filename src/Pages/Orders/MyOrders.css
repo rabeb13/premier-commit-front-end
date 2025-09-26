@@ -1,0 +1,96 @@
+.my-orders {
+  width: 95%;
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.my-orders h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.my-orders table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.my-orders th,
+.my-orders td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.my-orders thead {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.my-orders tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+.my-orders tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.my-orders a {
+  color: #2196F3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.my-orders a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #f44336;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Responsive : tableau scrollable sur mobile */
+@media (max-width: 600px) {
+  .my-orders table, 
+  .my-orders thead, 
+  .my-orders tbody, 
+  .my-orders th, 
+  .my-orders td, 
+  .my-orders tr {
+    display: block;
+  }
+
+  .my-orders thead tr {
+    display: none;
+  }
+
+  .my-orders tbody tr {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding: 10px;
+  }
+
+  .my-orders td {
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .my-orders td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: bold;
+    color: #555;
+  }
+}
